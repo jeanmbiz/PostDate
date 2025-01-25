@@ -32,7 +32,7 @@ interface PostProps {
 
 export function Post({ post }: PostProps) {
   const [comments, setComments] = useState([
-    'Post muito bacana, hein?!'
+    'muito bom, parabéns!!!!'
   ]);
 
   const [newCommentText, setNewCommentText] = useState('');

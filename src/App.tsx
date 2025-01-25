@@ -17,8 +17,7 @@ const posts: PostType[] = [
     },
     content: [
       { type: 'paragraph', content: 'Fala galera 👋' },
-      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀' },
-      { type: 'link', content: 'jane.design/doctorcare' },
+      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. O nome do projeto é PostDate 🚀' },
     ],
     publishedAt: new Date('2025-01-20 20:00:00'),
   },
@@ -30,9 +29,8 @@ const posts: PostType[] = [
       role: 'Developer Support Engineer'
     },
     content: [
-      { type: 'paragraph', content: 'Fala galera 👋' },
-      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀' },
-      { type: 'link', content: 'jane.design/doctorcare' },
+      { type: 'paragraph', content: '🚀 Nova jornada profissional na Digibee!' },
+      { type: 'paragraph', content: 'É com muita alegria que compartilho minha mais recente conquista: me juntei à Digibee como Engenheiro de Suporte ao Desenvolvedor! 🎉 Essa nova etapa tem sido desafiadora e empolgante, e eu não poderia estar mais feliz em contribuir para uma empresa tão inovadora e visionária.' },
     ],
     publishedAt: new Date('2025-01-22 20:00:00'),
   },
