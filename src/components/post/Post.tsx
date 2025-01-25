@@ -1,11 +1,12 @@
 import { format, formatDistanceToNow } from 'date-fns';
-import ptBR from 'date-fns/locale/pt-BR';
 import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
 
-import { Avatar } from './Avatar';
-import { Comment } from './Comment';
+
 
 import styles from './Post.module.css';
+import { ptBR } from 'date-fns/locale';
+import { Avatar } from '../avatar/Avatar';
+import { Comment } from '../comment/Comment';
 
 interface Author {
   name: string;
@@ -36,15 +37,19 @@ export function Post({ post }: PostProps) {
 
   const [newCommentText, setNewCommentText] = useState('');
 
+  // data da publicação formatado
   const publishedDateFormatted = format(post.publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
     locale: ptBR,
   });
 
+  // formatDistanceToNow: tempo do post relativo ao tempo atual
   const publishedDateRelativeToNow = formatDistanceToNow(post.publishedAt, {
     locale: ptBR,
     addSuffix: true
   });
 
+  // handle = ação do usuário
+  // event: FormEvent - evento do formulário
   function handleCrateNewComment(event: FormEvent) {
     event.preventDefault()
 
@@ -52,15 +57,20 @@ export function Post({ post }: PostProps) {
     setNewCommentText('');
   }
 
+  // ChangeEvent: o evento ocorreu no HTMLTextAreaElement
   function handleNewCommentChange(event: ChangeEvent<HTMLTextAreaElement>) {
     event.target.setCustomValidity('');
     setNewCommentText(event.target.value);
   }
 
+  // validação da textarea
+  // InvalidEvent: ocorreu evento no HTMLTextAreaElement
   function handleNewCommentInvalid(event: InvalidEvent<HTMLTextAreaElement>) {
+    // setCustomValidity: mensagem da validação
     event.target.setCustomValidity('Esse campo é obrigatório!');
   }
 
+  // função é enviada como props para o componente filho pra pegar o ID do comentário a ser deletado
   function deleteComment(commentToDelete: string) {
     const commentsWithoutDeletedOne = comments.filter(comment => {
       return comment !== commentToDelete;
@@ -112,11 +122,14 @@ export function Post({ post }: PostProps) {
           placeholder="Deixe um comentário"
           value={newCommentText}
           onChange={handleNewCommentChange}
+          // onInvalid: validação da textarea
           onInvalid={handleNewCommentInvalid}
+          // required: para nao permitir enviar o formulário sem nada preenchido
           required
         />
 
         <footer>
+          {/* disabled: desabilitar button quando o textarea estiver vazio */}
           <button type="submit" disabled={isNewCommentEmpty}>
             Publicar
           </button>
@@ -130,6 +143,7 @@ export function Post({ post }: PostProps) {
             <Comment
               key={comment}
               content={comment}
+              // on: são funções disparadas a partir de uma ação que acontece
               onDeleteComment={deleteComment}
             />
           )
