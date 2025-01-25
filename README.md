@@ -3,7 +3,7 @@
 
 # Sobre o projeto
 
-Projeto front-end Web em React de uma rede social, onde exitem posts, é possível adicionar comentários, etc:
+Projeto front-end Web em React que simula uma rede social, onde exitem posts, é possível adicionar comentários, apagar, etc:
 
 # Tecnologias utilizadas
 ## Front end
@@ -14,4 +14,4 @@ Projeto front-end Web em React de uma rede social, onde exitem posts, é possív
 - date-fns
 - phosphor-react
 
-### Link Vercel: xxx
+### Link Vercel: https://post-date-ebon.vercel.app/
