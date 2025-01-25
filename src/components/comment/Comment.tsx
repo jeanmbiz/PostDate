@@ -7,17 +7,22 @@ import { Avatar } from "../avatar/Avatar";
 
 interface CommentProps {
   content: string;
+  // tipagem de função: parametro + retorno
   onDeleteComment: (comment: string) => void;
 }
 
 export function Comment({ content, onDeleteComment }: CommentProps) {
+
   const [likeCount, setLikeCount] = useState(0);
 
   function handleDeleteComment() {
     onDeleteComment(content);
   }
 
+  // contador do aplaudir
   function handleLikeComment() {
+    // Clousures no React: state é o valor mais recente na atualização do valor
+    // sempre que for atualizar uma informações e essa informação depende do valor que ela teria anteriormente, utilizar este padrão com state
     setLikeCount((state) => {
       return state + 1
     });
